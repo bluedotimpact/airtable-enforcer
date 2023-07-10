@@ -1,0 +1,20 @@
+name: trigger
+
+on:
+  schedule:
+    # 9am UTC every day
+    # - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Hit scheduler API
+        run: |
+          curl \
+          --fail-with-body \
+          --request POST \
+          --url 'https://airtable-enforcer.vercel.app/api/scheduler/run' \
+          --header 'x-api-key: ${{ secrets.SCHEDULER_API_KEY }}'

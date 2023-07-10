@@ -1,0 +1,23 @@
+display_information:
+  name: (local) Airtable Enforcer
+  background_color: "#0037ff"
+features:
+  bot_user:
+    display_name: (local) Airtable Enforcer
+    always_online: false
+oauth_config:
+  redirect_urls:
+    - https://abcd123.lhr.life/api/slack/oauth_redirect
+  scopes:
+    bot:
+      - chat:write
+      - im:write
+      - users:read
+      - users:read.email
+settings:
+  interactivity:
+    is_enabled: true
+    request_url: https://abcd123.lhr.life/api/slack/events
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
